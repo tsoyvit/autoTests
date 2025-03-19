@@ -1,17 +1,23 @@
 <?php
-/*
-Нажмите кнопку run чтобы запустить тесты.
-Попробуйте изменять код функции / тестов, запуская проверки заново.
-*/
 
+require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/../src/StringUtils.php';
 
-if (App\capitalize('hello') !== 'Hello') {
-    throw new \Exception('Функция работает неверно!');
-}
+use Webmozart\Assert\Assert;
 
-if (App\capitalize('') !== '') {
-    throw new \Exception('Функция работает неверно!');
-}
+
+
+//if (App\capitalize('hello') !== 'Hello') {
+//    throw new \Exception('Функция работает неверно!');
+//}
+
+//if (App\capitalize('') !== '') {
+//    throw new \Exception('Функция работает неверно!');
+//}
+
+
+Assert::eq(App\capitalize(''), '');
+Assert::eq(App\capitalize('hello'), 'Hello');
+
 
 echo 'Все тесты пройдены!';
